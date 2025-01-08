@@ -26,8 +26,11 @@
         * {
             margin: 0;
             padding: 0;
+            font-size: 24;
             box-sizing: border-box;
             font-family: 'Alliance No.2 Light', sans-serif;}
+
+
 
         body, html {
             margin: 0;
@@ -53,7 +56,6 @@
             position: absolute;
             width: 100%;
             text-align: center;
-            font-size: 1.5em;
         }
         .border::before {
             top: 0;
@@ -193,7 +195,6 @@
 
         footer {
             margin: 50px 0;
-            font-size: 1.5em;
             font-weight: bold;
         }
 
@@ -205,6 +206,29 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
+        }
+
+
+
+        @media (max-width: 768px) {
+            * {
+                font-size: 18px;
+            }
+        }
+        @media (max-width: 480px) {
+            * {
+                font-size: 14px;
+
+            }
+
+
+            .border::before, .border::after {
+            content: ' ❤️ ❤️  Kankurize, I love you  ❤️ ❤️ ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+        }
         }
     </style>
 </head>
@@ -596,7 +620,7 @@
 
 
 
-    <footer class="animate__animated animate__heartBeat">
+    <footer>
         <p>With all my love, forever yours ❤️</p>
         <p> signed  and developed by @ E.K , your lover, happy birthday again❤️</p>
     </footer>
@@ -757,8 +781,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 attempts = 0;
             } else {
                 attempts++;
-                showMessage('Try again, my love! ❤️');
-                alert('Try again, my love! ❤️');
+                showMessage('Gretta, rukundo rwanje,  gerageza kandi! ❤️');
+                alert('Gretta, rukundo rwanje,  gerageza kandi! ❤️');
                 if (attempts >= 3) {
                     document.getElementById(`quiz${quizNum}`).style.display = 'none';
                     document.getElementById(`photo${quizNum + 1}`).style.display = 'block';
