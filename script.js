@@ -16,7 +16,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
   // Static grade value (update this number to change the grade)
-const grade = 85; // Change this value to update the grade
+const grade = 51.5; // Change this value to update the grade
 
 // Function to update the grade display
 function updateGradeDisplay(grade) {
