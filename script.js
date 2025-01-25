@@ -36,3 +36,11 @@ function updateGradeDisplay(grade) {
 
 // Initialize with the static grade value
 updateGradeDisplay(grade);
+
+// Toggle dropdown menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});

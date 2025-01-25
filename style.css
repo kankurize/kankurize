@@ -47,6 +47,7 @@ body {
 .nav-links {
     list-style: none;
     display: flex;
+    align-items: center;
 }
 
 .nav-links li {
@@ -64,6 +65,49 @@ body {
     color: #ff6f61;
 }
 
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 80px; /* Adjust based on navbar height */
+        right: 0;
+        background: rgba(255, 255, 255, 0.9);
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .nav-links.active {
+        max-height: 300px; /* Adjust based on content */
+        padding: 20px 0;
+    }
+}
 /* Hero Section */
 .hero {
     height: 100vh;
