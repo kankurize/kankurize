@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday,Kankurize!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+
+        @font-face {
+            font-family: 'Alliance No.2 Light';
+            src: url("Alliance/number2.otf") format('opentype');
+            
+        }
+        
+        @font-face {
+            font-family: 'Alliance No.1 Light';
+            src: url("Alliance/number1.otf") format('opentype');
+            
+        }
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 24;
+            box-sizing: border-box;
+            font-family: 'Alliance No.2 Light', sans-serif;}
+
+
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            color: white;
+            text-align: center;
+        }
+
+
+        .border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 700vh;
+            pointer-events: none;
+        }
+        .border::before, .border::after {
+            content: ' ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ Kankurize, I love you  ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️  ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+        }
+        .border::before {
+            top: 0;
+        }
+        .border::after {
+            bottom: 0;
+        }
+        .side {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 1.5em;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .side.left {
+            left: 0;
+        }
+        .side.right {
+            right: 0;
+        }
+        .side span {
+            display: block;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero {
+            padding: 100px 20px;
+        }
+
+        .gallery-container {
+            margin: 50px 0;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .photo {
+            display: none;
+            text-align: center;
+        }
+
+
+        #show{
+
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .public{
+            text-align: center;
+            
+           
+        }
+
+        span{
+            color:red;
+            
+        }
+
+
+
+        
+        .photo img {
+            width: 300px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 3s ease;
+        }
+
+
+        .public img {
+            width: 300px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 3s ease;
+        }
+
+        .photo img:hover {
+    transform:  rotate(360deg); 
+}
+
+
+.public img:hover {
+    transform:  rotate(360deg); 
+}
+
+        .caption {
+            margin-top: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .quiz-container {
+            margin: 30px auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            display: none;
+        }
+
+        .quiz-container h3 {
+            margin-bottom: 15px;
+        }
+
+        .message {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 69, 58, 0.9);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: none;
+            z-index: 10;
+        }
+
+        footer {
+            margin: 50px 0;
+            font-weight: bold;
+        }
+
+        #fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+
+
+        @media (max-width: 768px) {
+            * {
+                font-size: 18px;
+            }
+        }
+        @media (max-width: 480px) {
+            * {
+                font-size: 14px;
+
+            }
+
+
+            .border::before, .border::after {
+            content: ' ❤️ ❤️  Kankurize, I love you  ❤️ ❤️ ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+        }
+        }
+
+        p{
+
+            margin-left: 20px;
+            margin-right:20px ;
+        }
+
+        h2{
+
+            margin-left: 20px;
+            margin-right:20px ;
+
+
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Kankurize Gretta</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="birthday.html">birthdays</a></li>
+          <li><a href="poems.html">Poems</a></li>
+          <li><a href="grade.html">Grades</a></li>
+          <li><a href="gallery.html">Moments</a></li>
+    
+        </ul>
+      </nav>
+  
+    <div class="border">
+        <div class="side left">
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>Gretta, my love</span>
+        </div>
+        <div class="side right">
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>Gretta, my love</span>
+            
+        </div>
+    </div>
+    <div id="particles-js"></div>
+    <div class="hero animate__animated animate__fadeIn">
+        <h1>Happy Birthday, My Love ❤️</h1>
+        <p> <i>I like your intelligence,  kindness, resilience, empathy, confidence, independence, strong values, ability to connect with me.</i></p>
+
+        <p> Hirya yejo, nkuko nabikwandikiye, nasomye ama message twandikiraniye muri 2023, and I noticed how happy you were igihe umbwiye ko waronse Visa yo kugenda kwiga. Ikibazo niyumviriye ningene natevye kubana nawe murukundo kuko bisa nkaho nari nazimiye</p>
+        
+    </div>
+    
+    <div class="gallery-container animate__animated animate__zoomIn">
+        <h2>You are beautiful, intelligent, humble and kind my love. I will not let you go again<h2>
+        <div class="gallery">
+            <div class="photo" id="photo1">
+                <img src="honey11.jpeg" alt="Special memory">
+                <p class="caption">Usa neza. Imico yawe n'ubwiza bwawe bituma nicuza igihe namaze ntakuri hafi ❤️</p>
+            <div class="photo" id="photo2">
+                <img src="honey8.jpeg" alt="Special memory">
+                <p class="caption">Singukunda kubera ko uri mwiza, ndagukunda kuko uruwutuma nuzura, ikiganiro cawe, ivyiyumviro vyawe bituma numva nuzuye ✨</p>
+            </div>
+            <div class="photo" id="photo3">
+                <img src="honey13.jpeg" alt="Special memory">
+                <p class="caption">Waranyivye ikintu gikomeye, kandi sinibaza ko niteze kukiguhebera, naco sikindi n'umutima wanje. Ningombwa uwugarukane canke naho tuzokwihurira ninaza. 💖</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-container" id="quiz1">
+        <h3>Ikibazo 1: Mvuka mwi commune iyihe ?</h3>
+        <input type="text" id="answer1">
+        <button onclick="checkAnswer(1, 'shombo')">Rungika</button>
+    </div>
+
+    <div class="quiz-container" id="quiz2">
+        <h3>Ikibazo 2: mfise Imyaka inga?</h3>
+        <input type="text" id="answer2">
+        <button onclick="checkAnswer(2, '25')">Rungika</button>
+    </div>
+
+    <div class="quiz-container" id="quiz3">
+        <p><i>Congratulations !! my love. I cannot describe how <span>I love you 💖 Gretta</span>. Naho ntashobora kuba ndikumwe nawe  kuw'umunsi wamavuka yawe, I hope next year, tuzoba turikumwe,<span>ndagufumbatiye</span> , nongera <span>ngusoma </span> mugahanga. Nzoba ndiko <span>ndakwongorera</span> bukebuke uwo uri mubuzima bwanje ningene aramahigwe nagize kuba waravutse. Unkundiye, nzogukubita amakofe nkatatu kuko I love you than I can describe. Unyemerere rero, kumvo zuko biboneka ko ubangamiye umutima wanje, nzoguhana bishimishije kuko you stole my heart without my consent and now it seems like from today onward I will not be able to live without you in my life. You have become my oxygen because your presence in my life is already making me strong</i></p>
+
+        <button  style = "color:red; font-size: large;"onclick="displayImages()"> Click here to Make out with Me my Love 😘</button>
+    </div>
+
+
+    <div class="gallery-container animate__animated animate__zoomIn">
+        <p>My Kankurize. Uziko <span>abavyeyi</span> bawe bari intelligent, izina ryawe umuntu arivuze ririmwo vyinshi. Nkubu arije ndarivuze, numva ririmwo ishengesho kuruhande rwanje. Ikindi ndiko nshimira abavyeyi bawe, nshobora kuva ati mwarakoze <span> kumunkuriza</span></p>
+        <div  id="show">
+            <div class="public" id="photo1">
+                <img src="honey1.jpeg" alt="Special memory">
+                <p class="caption">Brilliant ❤️</p>
+            </div>
+            <div class="public" id="photo2">
+                <img src="honey2.jpeg" alt="Special memory">
+                <p class="caption">Humble</p> ✨</p>
+            </div>
+            <div class="public" id="photo3">
+                <img src="honey11.jpeg" alt="Special memory">
+                <p class="caption">Sweet 💖</p>
+            </div>
+
+            <div class="public" id="photo3">
+                <img src="honey4.jpeg" alt="Special memory">
+                <p class="caption">Kind 💖</p>
+            </div>
+
+            <div class="public" id="photo3">
+                <img src="honey5.jpeg" alt="Special memory">
+                <p class="caption">My love 💖</p>
+            </div>
+
+            <div class="public" id="photo3">
+                <img src="honey6.jpeg" alt="Special memory">
+                <p class="caption">Sunshine 💖</p>
+            </div>
+
+            <div class="public" id="photo3">
+                <img src="honey7.jpeg" alt="Special memory">
+                <p class="caption">Independent</p>
+            </div>
+
+            <div class="public" id="photo3">
+                <img src="honey9.jpeg" alt="Special memory">
+                <p class="caption">Supportive 💖</p>
+            </div>
+
+            <div class="public" id="photo3">
+                <img src="honey10.jpeg" alt="Special memory">
+                <p class="caption">my wife 💖</p>
+            </div>
+
+            <div class="public" id="photo3">
+                <img src="honey3.jpeg" alt="Special memory">
+                <p class="caption">Rib of my Ribs 💖</p>
+            </div>
+
+            <div class="public" id="photo3">
+                <img src="honey12.jpeg" alt="Special memory">
+                <p class="caption">My beatiful Angel 💖</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <p>With all my love, forever yours ❤️</p>
+        <p> signed  and developed by @ E.K , your lover, happy birthday again❤️</p>
+    </footer>
+    
+
+
+    <div class="message" id="messageBox">Try again, my love! ❤️</div>
+
+    <canvas id="fireworks"></canvas>
+
+    <script>
+        let attempts = 0;
+
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 100 },
+                size: { value: 3 },
+                color: { value: '#ff0000' },
+                move: { speed: 6 }
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('photo1').style.display = 'block';
+            document.getElementById('quiz1').style.display = 'block';
+            startFireworks();
+        });
+
+
+
+        function displayImages(){
+
+            document.getElementById("show").style.display = 'flex';
+
+        }
+
+        function startFireworks() {
+    const canvas = document.getElementById('fireworks');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let fireworks = [];
+    let particles = [];
+
+    function createFirework() {
+        let firework = {
+            x: Math.random() * canvas.width,
+            y: canvas.height,
+            speed: Math.random() * 2 + 2, 
+            size: Math.random() * 5 + 10, 
+            angle: Math.random() * 2 * Math.PI,
+            explosion: false,
+            textPosition: 0 
+        };
+        fireworks.push(firework);
+    }
+
+    function drawHeart(x, y, size) {
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.bezierCurveTo(x - size / 2, y - size / 2, x - size, y + size / 2, x, y + size);
+        ctx.bezierCurveTo(x + size, y + size / 2, x + size / 2, y - size / 2, x, y);
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    function explodeFirework(firework) {
+        let numParticles = Math.random() * 500 + 500; 
+        for (let i = 0; i < numParticles; i++) {
+            let angle = Math.random() * 2 * Math.PI;
+            let speed = Math.random() * 5 + 2; 
+            let particle = {
+                x: firework.x,
+                y: firework.y,
+                speed: speed,
+                size: Math.random() * 4 + 2,
+                angle: angle,
+                lifetime: 0
+            };
+            particles.push(particle);
+        }
+        firework.explosion = true; 
+    }
+
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+       
+        fireworks.forEach((firework, i) => {
+            if (!firework.explosion) {
+                firework.y -= firework.speed;
+
+                
+                ctx.fillStyle = 'rgba(255, 0, 0, 0.8)'; 
+                drawHeart(firework.x, firework.y, firework.size);
+
+                
+                if (firework.textPosition < 50) {
+                    ctx.fillStyle = 'rgba(255, 255, 255, 1)';
+                    ctx.font = '24px Arial'; 
+                    ctx.textAlign = 'center';
+                    ctx.fillText("Kankurize, My Queen ", firework.x, firework.y - 40); 
+                    firework.textPosition += 1; 
+                }
+
+                
+                if (firework.y < canvas.height / 3) { 
+                    explodeFirework(firework);
+                    fireworks.splice(i, 1); 
+                }
+            }
+        });
+
+        
+        particles.forEach((particle, i) => {
+            particle.x += Math.cos(particle.angle) * particle.speed;
+            particle.y += Math.sin(particle.angle) * particle.speed;
+            particle.lifetime += 1;
+
+            
+            ctx.fillStyle = `rgba(255, 0, 0, ${1 - particle.lifetime / 50})`; 
+            ctx.beginPath();
+            ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+            ctx.fill();
+
+            if (particle.lifetime > 50) particles.splice(i, 1); 
+        });
+
+        requestAnimationFrame(animateParticles);
+    }
+
+    setInterval(createFirework, 1500);
+    animateParticles();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('photo1').style.display = 'block';
+            document.getElementById('quiz1').style.display = 'block';
+        });
+
+        function showMessage(message) {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.textContent = message;
+            messageBox.style.display = 'block';
+            setTimeout(() => {
+                messageBox.style.display = 'none';
+            }, 3000);
+        }
+
+        function checkAnswer(quizNum, correctAnswer) {
+            const userAnswer = document.getElementById(`answer${quizNum}`).value.toLowerCase();
+            if (userAnswer === correctAnswer.toLowerCase()) {
+                document.getElementById(`quiz${quizNum}`).style.display = 'none';
+                document.getElementById(`photo${quizNum + 1}`).style.display = 'block';
+                if (document.getElementById(`quiz${quizNum + 1}`)) {
+                    document.getElementById(`quiz${quizNum + 1}`).style.display = 'block';
+                }
+                attempts = 0;
+            } else {
+                attempts++;
+                showMessage('Gretta, rukundo rwanje,  gerageza kandi! ❤️');
+                alert('Gretta, rukundo rwanje,  gerageza kandi! ❤️');
+                if (attempts >= 3) {
+                    document.getElementById(`quiz${quizNum}`).style.display = 'none';
+                    document.getElementById(`photo${quizNum + 1}`).style.display = 'block';
+                    if (document.getElementById(`quiz${quizNum + 1}`)) {
+                        document.getElementById(`quiz${quizNum + 1}`).style.display = 'block';
+                    }
+                    attempts = 0;
+                }
+            }
+        }
+
+
+    </script>
+</body>
+</html>
