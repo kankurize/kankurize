@@ -1,3 +1,12 @@
+
+// Toggle dropdown menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
 // Add smooth scrolling to all links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -37,10 +46,4 @@ function updateGradeDisplay(grade) {
 // Initialize with the static grade value
 updateGradeDisplay(grade);
 
-// Toggle dropdown menu
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
 
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
